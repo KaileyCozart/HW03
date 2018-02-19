@@ -1,0 +1,3 @@
+﻿  readint.cpp
+\\cs1\2021\kcozart21\cs-273-1\hw3\exceptionstesting\exceptionstesting\readint.cpp(24): warning C4101: 'ex': unreferenced local variable
+  ExceptionsTesting.vcxproj -> \\cs1\2021\kcozart21\CS-273-1\HW3\ExceptionsTesting\Debug\ExceptionsTesting.exe
