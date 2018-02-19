@@ -4,53 +4,20 @@
 #include <stdexcept>
 #include <limits>
 #include <ios>
-
 using namespace std;
 
-/*
 int read_int(const string &prompt, int low, int high)
 {
-	int num = 0;
-	while (true) {
-		try 
-		{
-			if (low > high)
-				throw out_of_range("The lower bound must be lower than the upper bound.");
-			cout << prompt;
-			cin >> num;
-			if (num > high || num < low)
-				throw out_of_range("The number is not within the range you specified.");
-			return num;
-		}
-		catch (ios_base::failure& ex)
-		{
-			cout << "Number not within the range. Please try another value.\n";
-			cin.clear();
-			cin.ignore(numeric_limits<int>::max(), '\n'); 
-		}
-	}
-}
-*/
-
-
-int read_int(const string &prompt, int low, int high)
-{
-	/*
-	int num = 0;
-	if (low > high)
-		throw string(prompt);
-	cout << prompt;
-	cin >> num;
-	if (num > high || num < low)
-		throw out_of_range("The number is not within the range you specified.");
-	return num;
-	*/
 
 	int num = 0;
 	bool run = true;
 	while (run) {
 
 		try {
+			if (high <= low) {
+				throw invalid_argument("Throwing invalid_argument");
+				// Throw invalid_argument exception which is handled by man's catch() block
+			}
 			cout << prompt;
 			cin >> num;
 			if (num >= high || num <= low) {
@@ -58,11 +25,13 @@ int read_int(const string &prompt, int low, int high)
 				cout << "The value you entered was not inside the range. Please try another number." << endl;
 				// Re-Prompt For New Value
 				// -- No need to throw an exception
+				// Throw range_error
 			}
 			else {
 				run = false;
 			}
 		}
+
 		// throw invalid_argument exception for high and low not specifying a good range
 		catch (range_error) {
 			// Deals with user entering values outside the range specified by high and low
@@ -76,6 +45,7 @@ int read_int(const string &prompt, int low, int high)
 			cin.clear();
 			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
+
 	}
 	return num;
 }
