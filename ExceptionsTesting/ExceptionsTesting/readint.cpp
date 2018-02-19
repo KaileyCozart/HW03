@@ -8,7 +8,7 @@ using namespace std;
 
 int read_int(const string &prompt, int low, int high)
 {
-
+	cin.exceptions(ios::failbit | ios::badbit);
 	int num = 0;
 	bool run = true;
 	while (run) {
@@ -31,19 +31,18 @@ int read_int(const string &prompt, int low, int high)
 				run = false;
 			}
 		}
-
+		catch (ios_base::failure) {
+			cout << "catch ios_base::failure called in read_int" << endl;
+			// cout << "Invalid Input" << endl;
+			cin.clear();
+			cin.ignore(numeric_limits<int>::max(), '\n');
+		}
 		// throw invalid_argument exception for high and low not specifying a good range
 		catch (range_error) {
 			// Deals with user entering values outside the range specified by high and low
 			// should be handled by read_int's internal exception handler
 			// which exception should read_int throw first and why
 			cout << "catch range_error called in read_int" << endl;
-		}
-		catch (ios_base::failure) {
-			cout << "catch ios_base::failure called in read_int" << endl;
-			// cout << "Invalid Input" << endl;
-			cin.clear();
-			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
 
 	}
