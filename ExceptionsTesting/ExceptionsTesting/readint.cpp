@@ -15,7 +15,7 @@ int read_int(const string &prompt, int low, int high)
 	while (run) {
 
 		try {
-			if (high <= low) {
+			if (high <= (low+1)) {  // Using Integers -- There Must Be At Least One Integer Between Numbers Entered
 				throw std::invalid_argument("Throwing invalid_argument");
 			}
 			cout << prompt;
