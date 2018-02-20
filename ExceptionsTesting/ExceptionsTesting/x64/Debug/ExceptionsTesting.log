@@ -1,1 +1,3 @@
-﻿  ExceptionsTesting.vcxproj -> C:\Users\kaiwi\Source\Repos\HW03\ExceptionsTesting\x64\Debug\ExceptionsTesting.lib
+﻿  readint.cpp
+c:\users\kaiwi\source\repos\hw03\exceptionstesting\exceptionstesting\readint.cpp(35): warning C4101: 'ex': unreferenced local variable
+  ExceptionsTesting.vcxproj -> C:\Users\kaiwi\Source\Repos\HW03\ExceptionsTesting\x64\Debug\ExceptionsTesting.lib
