@@ -166,6 +166,7 @@
     <ClCompile Include="unittest1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="otherinputs.txt" />
     <Text Include="zeroinput.txt" />
   </ItemGroup>
   <ItemGroup>
