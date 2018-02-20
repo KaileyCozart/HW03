@@ -77,6 +77,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)\ExceptionsTesting\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -166,6 +167,11 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="zeroinput.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExceptionsTesting\ExceptionsTesting.vcxproj">
+      <Project>{a928f45f-6da0-4bf6-8252-7025f5408b70}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,6 +13,7 @@ namespace UnitTester
 	{
 	public:
 		
+		/*
 		TEST_METHOD(TestMethod1)
 		{
 			ifstream ss("..\\UnitTester\\zeroinput.txt");
@@ -24,6 +25,7 @@ namespace UnitTester
 			cin.rdbuf(orig_cin);
 			ss.close();
 		}
+		*/
 
 		TEST_METHOD(TestMethod2)
 		{
