@@ -9,19 +9,19 @@ using namespace std;
 
 int read_int(const string &prompt, int low, int high)
 {
-	cin.exceptions(ios::failbit | ios::badbit);
+	cin.exceptions(ios_base::failbit);
 	int num = 0;
 	bool run = true;
 	while (run) {
 
 		try {
 			if (high <= (low+1)) {  // Using Integers -- There Must Be At Least One Integer Between Numbers Entered
-				throw std::invalid_argument("Throwing invalid_argument");
+				throw std::invalid_argument("The lower range must be lower than the higher range minus one.");
 			}
 			cout << prompt;
 			cin >> num;
 			if (num >= high || num <= low) {
-				throw std::range_error("Throwing range_error");
+				throw std::range_error("The value you entered was not inside the range. Please try another number.");
 			}
 			else {
 				run = false;
@@ -32,8 +32,8 @@ int read_int(const string &prompt, int low, int high)
 			cin.clear();
 			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
-		catch (std::range_error& ex) {  // User Enters Value Outside of Specified Range
-			cout << "The value you entered was not inside the range. Please try another number." << endl;
+		catch (std::range_error& re) {  // User Enters Value Outside of Specified Range
+			cerr <<  re.what() << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
