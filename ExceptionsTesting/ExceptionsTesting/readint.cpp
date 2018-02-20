@@ -16,26 +16,24 @@ int read_int(const string &prompt, int low, int high)
 
 		try {
 			if (high <= low) {
-				throw std::invalid_argument("Throwing invalid_argument");  // Throw invalid_argument exception which is handled by man's catch() block
+				throw std::invalid_argument("Throwing invalid_argument");
 			}
 			cout << prompt;
 			cin >> num;
 			if (num >= high || num <= low) {
-				cout << "The value you entered was not inside the range. Please try another number." << endl;
 				throw std::range_error("Throwing range_error");
 			}
 			else {
 				run = false;
 			}
 		}
-		catch (ios_base::failure) {
-			cout << "catch ios_base::failure called in read_int" << endl;
-			cout << "Invalid Input" << endl;
+		catch (ios_base::failure) {  // User Enters An Invalid Input for Value
+			cout << "Invalid Input. Must input an integer." << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
-		catch (std::range_error& ex) {  // Deals with user entering values outside the range specified by high and low
-			cout << "catch range_error called in read_int" << endl;
+		catch (std::range_error& ex) {  // User Enters Value Outside of Specified Range
+			cout << "The value you entered was not inside the range. Please try another number." << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
