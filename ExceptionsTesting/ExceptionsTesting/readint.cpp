@@ -1,3 +1,8 @@
+// Kailey Cozart
+// CS-273
+// Pete Tucker
+// Assignment #3
+
 #include "stdafx.h"
 #include "readint.h"
 #include <iostream>
