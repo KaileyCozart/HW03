@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "CppUnitTest.h"
 #include "readint.h"
 
@@ -15,14 +16,12 @@ namespace UnitTester
 		
 		TEST_METHOD(TestCase1)
 		{
-			std::ifstream ss("..\\UnitTester\\zeroinput.txt");
-			if (ss.fail())
-				throw int(-1);
+			std::istringstream ss("Hello\n0");
+			// std::ifstream ss("..\\UnitTester\\zeroinput.txt");  /* Alternatively, Use Resource File In This Project */
 			std::streambuf *orig_cin = std::cin.rdbuf(ss.rdbuf());
-
 			Assert::AreEqual(read_int("Please enter a number within the range: ", -3, 3), 0);
 			std::cin.rdbuf(orig_cin);
-			ss.close();
+			// ss.close(); /* Alternatively, Will Need This */
 		}
 
 		TEST_METHOD(TestCase2)
@@ -36,14 +35,12 @@ namespace UnitTester
 
 		TEST_METHOD(TestCase3)
 		{
-			std::ifstream ss("..\\UnitTester\\otherinputs.txt");
-			if (ss.fail())
-				throw int(-1);
+			std::istringstream ss("-3\n5\n10\n-2\n3");
+			// std::ifstream ss("..\\UnitTester\\otherinputs.txt"); /* Alternatively, Use Resource File In This Project */
 			std::streambuf *orig_cin = std::cin.rdbuf(ss.rdbuf());
-
-			Assert::AreEqual(read_int("Please enter a number within the range: ", 0, 4), 0);
+			Assert::AreEqual(read_int("Please enter a number within the range: ", 0, 4), 3);
 			std::cin.rdbuf(orig_cin);
-			ss.close();
+			// ss.close(); /* Alternatively, Will Need This */
 		}
 
 		TEST_METHOD(TestCase4)
